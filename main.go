@@ -1,6 +1,4 @@
-// Reference plugin for the Concord plugin protocol v1. Demonstrates the
-// minimum surface a plugin author needs: implement plugin.Collector and
-// hand it to plugin.Serve.
+// Reference Concord plugin for protocol v1.
 package main
 
 import (
@@ -36,10 +34,10 @@ func (hello) Collect(_ context.Context, ref plugin.EvidenceRef) (any, error) {
 		name = "world"
 	}
 	return map[string]any{
-		"message":      fmt.Sprintf("hello, %s", name),
-		"fetched_at":   time.Now().UTC().Format(time.RFC3339),
-		"protocol":     plugin.ProtocolVersion,
-		"plugin_name":  "hello",
+		"message":        fmt.Sprintf("hello, %s", name),
+		"fetched_at":     time.Now().UTC().Format(time.RFC3339),
+		"protocol":       plugin.ProtocolVersion,
+		"plugin_name":    "hello",
 		"plugin_version": "v0.1.0",
 	}, nil
 }
