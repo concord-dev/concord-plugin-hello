@@ -2,9 +2,11 @@ apiVersion: concord.dev/v1
 kind: Control
 metadata:
   id: hello-greeting
-  framework: hello
-spec:
   title: Hello plugin returns a greeting
+  framework: hello
+  severity: low
+spec:
+  description: Smoke control that exercises the hello plugin's `greeting` evidence type.
   evidence:
     - id: greeting
       source: hello
@@ -12,5 +14,6 @@ spec:
       params:
         name: concord
   policy:
+    engine: rego
     file: ../policies/hello.rego
     package: concord.hello
