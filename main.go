@@ -31,7 +31,10 @@ func (hello) Collect(_ context.Context, ref plugin.EvidenceRef) (any, error) {
 	if ref.Type != "greeting" {
 		return nil, plugin.ErrUnsupportedType
 	}
-	name, _ := plugin.StringParam(ref.Params, "name", "world")
+	name := plugin.StringParam(ref, "name")
+	if name == "" {
+		name = "world"
+	}
 	return map[string]any{
 		"message":      fmt.Sprintf("hello, %s", name),
 		"fetched_at":   time.Now().UTC().Format(time.RFC3339),
