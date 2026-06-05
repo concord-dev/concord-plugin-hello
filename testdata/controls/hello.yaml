@@ -1,0 +1,16 @@
+apiVersion: concord.dev/v1
+kind: Control
+metadata:
+  id: hello-greeting
+  framework: hello
+spec:
+  title: Hello plugin returns a greeting
+  evidence:
+    - id: greeting
+      source: hello
+      type: greeting
+      params:
+        name: concord
+  policy:
+    file: ../policies/hello.rego
+    package: concord.hello
