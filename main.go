@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"time"
 
-	plugin "github.com/concord-dev/concord/pkg/plugin"
+	plugin "github.com/concord-dev/concord-plugin-sdk/plugin"
 )
 
 type hello struct{}
