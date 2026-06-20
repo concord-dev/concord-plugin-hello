@@ -5,7 +5,7 @@ INSTALL_DIR := $(HOME)/.concord/plugins/hello/$(VERSION)
 .PHONY: build install clean
 
 build:
-	go build -o $(BIN) .
+	go build -o $(BIN) ./cmd/concord-plugin-hello
 
 install: build
 	mkdir -p $(INSTALL_DIR)
